@@ -10,9 +10,7 @@
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
 
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,400i" rel="stylesheet">
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
