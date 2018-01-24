@@ -33,7 +33,7 @@
         }
         
         .logo p {
-            color: rgb(228, 146, 162);
+            color: #F5593D;
             font-size: 20px;
             margin-top: 1px;
             text-align: center;
@@ -48,7 +48,7 @@
             background: #8F8E8C;
             text-decoration: none;
             padding: 7px 120px;
-            font-size: 13px;
+            font-size: 17px;
             font-weight: bold;
             -webkit-border-radius: 3em;
             -moz-border-radius: .1em;

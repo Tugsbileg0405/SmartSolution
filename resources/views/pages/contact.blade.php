@@ -1,6 +1,8 @@
 @extends('layouts.app') 
 
+@section('header')
 @include('partials.navbar-2')
+@stop
 
 @section('content')
 <div class="contact-us">

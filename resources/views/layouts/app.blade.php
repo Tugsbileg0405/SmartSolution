@@ -12,16 +12,15 @@
 
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('css/animate.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/lightslider.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/lightgallery.css') }}">
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,400i" rel="stylesheet">
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ asset('css/nucleo-icons.css') }}" rel="stylesheet" />
     </head>
     <body>
-    
+        @yield('header')
+
         @yield('content')
 
         @include('partials.footer')

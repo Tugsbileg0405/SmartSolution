@@ -14,8 +14,25 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
-    "laravel-mix": "^1.0",
-    "lodash": "^4.17.4",
-    "vue": "^2.1.10"
-  }
+    "laravel-mix": "^1.7.2",
+    "lodash": "^4.17.4"
+  },
+  "name": "SmartSol",
+  "description": "<p align=\"center\"><img src=\"https://laravel.com/assets/img/components/logo-laravel.svg\"></p>",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tugsbileg0405/SmartSolution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tugsbileg0405/SmartSolution/issues"
+  },
+  "homepage": "https://github.com/Tugsbileg0405/SmartSolution#readme"
 }

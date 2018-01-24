@@ -1,6 +1,8 @@
 @extends('layouts.app') 
 
+@section('header')
 @include('partials.navbar')
+@stop
 
 @section('content')
 <div class="wrapper">
@@ -85,8 +87,7 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2  text-center">
                     <h2 class="title">Манай давуу тал</h2>
-                    <h5 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus neque felis, pretium tristique erat fermentum
-                        sit amet. Nam quis feugiat lacus.
+                    <h5 class="description">Өрөөлийг муулж өөрийгөө магтахгүй. Давуугаа мэдэхгүй ч дутуугаа мэднэ. Тантай хамт суралцаж түмэнтэйгээ хуваалцана
                     </h5>
                 </div>
             </div>
@@ -98,8 +99,7 @@
                         </div>
                         <div class="description">
                             <h4 class="info-title">Шилдэг Технологи</h4>
-                            <p class="description">Олон улсад танигдсан 20 гариу брендийн шилдэг технологийг нутагшуулан, заавар гарын авлага болон засвар үйлчилгээнд
-                                эх орондоо гүйцэтгэж байна.</p>
+                            <p class="description">Дэлхийн хаа нэгтээ чадаж л байвал монгол хүн чадна. Танд хэрэгтэй бүх л техник технологийг нийлүүлж туслана</p>
                         </div>
                     </div>
                 </div>
@@ -110,8 +110,7 @@
                         </div>
                         <div class="description">
                             <h4 class="info-title">Мэргэжилийн хамт олон</h4>
-                            <p class="description">8 жилийн ажлын туршлагатай мэргэжлийн баг хамт олон танай байгууллагын хэрэгцээ шаардалагын тодорхойлон таны цаг,
-                                зардалын хэмнэн ажиллаж байна.</p>
+                            <p class="description">Тал бүрийн авьяастай талын чинээ хараатай мэргэжил бүхний захтай мэргэн түргэн шийдэлтэй хэлсэндээ эзэн хийсэндээ бардам хамт олон байна</p>
                         </div>
                     </div>
                 </div>
@@ -122,8 +121,7 @@
                         </div>
                         <div class="description">
                             <h4 class="info-title">Урт хугацааны дэмжлэг</h4>
-                            <p class="description">Технологийн бизнест хамгийн чухал зүйл бол урт хугацааны найдвартай ажиллагаа болон хийсэн зүйлдээ эзэн болох байдаг.
-                                Бид үйлчлүүлэгчдийнхээ итгэлийг хадгалан урт хугацаанд хамтын ажиллагаа өрнүүлж байна.</p>
+                            <p class="description">Удаан явбал унаж осолдохгүй, дулаан явбал даарч осгохгүй, холыг зорьвол хорвоог туулна, ашидыг хичээж ашгийг тэвчих нь аль алиндаа өлзий орших учиртай билээ</p>
                         </div>
                     </div>
                 </div>
@@ -176,8 +174,7 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2  text-center">
                         <h2 class="title">Манай бүтээгдэхүүн үйлчилгээ</h2>
-                        <h5 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus neque felis, pretium tristique erat fermentum
-                            sit amet. Nam quis feugiat lacus.
+                        <h5 class="description">Хүн биет эцэж ядрана, алдаа мадаг алмайрч алгуурах нь элбэг.Худал хуумгай, хулгайч хүмүүн цөөнгүй. Манай техник технологи дутууг гүйцээж дундуурыг дүүргэж хүний оролцоог багасгана.
                         </h5>
                     </div>
                 </div>

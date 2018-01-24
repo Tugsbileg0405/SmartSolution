@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="ecommerce">
+@section('header')
 @include('partials.navbar-2')
+@stop
 <div class="wrapper">
     <div class="section ">
         <div class="container">

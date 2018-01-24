@@ -126,7 +126,11 @@ $(document).ready(function () {
             enableHover: false,
             enableTracking: true,
             enableCounter: false,
-            buttons: { twitter: { via: 'CreativeTim' } },
+            buttons: {
+                twitter: {
+                    via: 'CreativeTim'
+                }
+            },
             click: function (api, options) {
                 api.simulateClick();
                 api.openPopup('twitter');
@@ -144,7 +148,11 @@ $(document).ready(function () {
             enableHover: false,
             enableTracking: true,
             enableCounter: false,
-            buttons: { twitter: { via: 'CreativeTim' } },
+            buttons: {
+                twitter: {
+                    via: 'CreativeTim'
+                }
+            },
             click: function (api, options) {
                 api.simulateClick();
                 api.openPopup('twitter');
@@ -233,49 +241,65 @@ $(document).ready(function () {
 
         $('#element1left').waypoint(function () {
             $('#element1left').addClass('fadeInLeft');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element1right').css('opacity', 0);
 
         $('#element1right').waypoint(function () {
             $('#element1right').addClass('fadeInRight');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element2left').css('opacity', 0);
 
         $('#element2left').waypoint(function () {
             $('#element2left').addClass('fadeInLeft');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element2right').css('opacity', 0);
 
         $('#element2right').waypoint(function () {
             $('#element2right').addClass('fadeInRight');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element3left').css('opacity', 0);
 
         $('#element3left').waypoint(function () {
             $('#element3left').addClass('fadeInLeft');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element3right').css('opacity', 0);
 
         $('#element3right').waypoint(function () {
             $('#element3right').addClass('fadeInRight');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element4left').css('opacity', 0);
 
         $('#element4left').waypoint(function () {
             $('#element4left').addClass('fadeInLeft');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
 
         $('#element4right').css('opacity', 0);
 
         $('#element4right').waypoint(function () {
             $('#element4right').addClass('fadeInRight');
-        }, { offset: '80%' });
+        }, {
+            offset: '80%'
+        });
     }
 
     $('#imageGallery').lightSlider({
@@ -461,7 +485,122 @@ pk = {
         var mapOptions = {
             zoom: 14,
             center: myLatlng,
-            styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }],
+            styles: [{
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#e9e9e9"
+                }, {
+                    "lightness": 17
+                }]
+            }, {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }, {
+                    "lightness": 20
+                }]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 17
+                }]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 29
+                }, {
+                    "weight": 0.2
+                }]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 18
+                }]
+            }, {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 16
+                }]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }, {
+                    "lightness": 21
+                }]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#dedede"
+                }, {
+                    "lightness": 21
+                }]
+            }, {
+                "elementType": "labels.text.stroke",
+                "stylers": [{
+                    "visibility": "on"
+                }, {
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 16
+                }]
+            }, {
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "saturation": 36
+                }, {
+                    "color": "#333333"
+                }, {
+                    "lightness": 40
+                }]
+            }, {
+                "elementType": "labels.icon",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            }, {
+                "featureType": "transit",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f2f2f2"
+                }, {
+                    "lightness": 19
+                }]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#fefefe"
+                }, {
+                    "lightness": 20
+                }]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#fefefe"
+                }, {
+                    "lightness": 17
+                }, {
+                    "weight": 1.2
+                }]
+            }],
             scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
         }
 
@@ -483,7 +622,122 @@ pk = {
         var mapOptions = {
             zoom: 14,
             center: myLatlng,
-            styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }],
+            styles: [{
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#e9e9e9"
+                }, {
+                    "lightness": 17
+                }]
+            }, {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }, {
+                    "lightness": 20
+                }]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 17
+                }]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 29
+                }, {
+                    "weight": 0.2
+                }]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 18
+                }]
+            }, {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 16
+                }]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }, {
+                    "lightness": 21
+                }]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#dedede"
+                }, {
+                    "lightness": 21
+                }]
+            }, {
+                "elementType": "labels.text.stroke",
+                "stylers": [{
+                    "visibility": "on"
+                }, {
+                    "color": "#ffffff"
+                }, {
+                    "lightness": 16
+                }]
+            }, {
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "saturation": 36
+                }, {
+                    "color": "#333333"
+                }, {
+                    "lightness": 40
+                }]
+            }, {
+                "elementType": "labels.icon",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            }, {
+                "featureType": "transit",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f2f2f2"
+                }, {
+                    "lightness": 19
+                }]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#fefefe"
+                }, {
+                    "lightness": 20
+                }]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#fefefe"
+                }, {
+                    "lightness": 17
+                }, {
+                    "weight": 1.2
+                }]
+            }],
             scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
         }
 
@@ -525,7 +779,8 @@ demo = {
 function debounce(func, wait, immediate) {
     var timeout;
     return function () {
-        var context = this, args = arguments;
+        var context = this,
+            args = arguments;
         clearTimeout(timeout);
         timeout = setTimeout(function () {
             timeout = null;
@@ -561,7 +816,10 @@ _gaq.push(['_setAccount', 'UA-46172202-1']);
 _gaq.push(['_trackPageview']);
 
 (function () {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
 })();
