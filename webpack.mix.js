@@ -14,6 +14,7 @@ mix.styles([
     'public/assets/css/bootstrap.min.css',
     'public/assets/css/admin.css',
     'public/assets/css/animate.min.css',
+    'public/assets/css/uikit.min.css',
     'public/assets/css/sweetAlert.min.css',
     'public/assets/css/perfect-scrollbar.min.css'
 ], 'public/assets/css/app.css');

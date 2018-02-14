@@ -53,6 +53,7 @@
         <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
         <script src="{{ asset('assets/js/sweetAlert.min.js') }}"></script>
         
+        <script src="{{ asset('assets/js/uikit.min.js') }}"></script>
         <script src="{{ asset('assets/js/notify.min.js') }}"></script>
         <script src="{{ asset('assets/js/perfect-scrollbar.min.js') }}"></script>
         <script src="{{ asset('assets/js/admin.js') }}"></script>

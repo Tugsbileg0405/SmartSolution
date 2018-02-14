@@ -12,10 +12,34 @@
             <ol class="carousel-indicators">
                 <li data-target="#maincarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#maincarousel" data-slide-to="1" class=""></li>
+                <li data-target="#maincarousel" data-slide-to="2" class=""></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-
                 <div class="carousel-item active">
+                    <div class="page-header header-video">
+                    <div class="filter filter-danger"></div>
+                    <!-- We show the video image placeholder instead of the video for small devices  -->
+                    <div class="video-image visible-xs visible-sm" style="background-image: url('assets/img/video-placeholder.png')"></div>
+                        <video id="video-source" preload="auto" loop="loop" muted="muted" volume="0">
+                            <source src="{{ asset('videos/1518600092.mp4') }}" type="video/mp4">
+                                Video not supported
+                        </video>
+                        <div class="content-center">
+                            <div class="container upper-container text-center">
+                                <div class="video-text">
+                                    <h2>Make it</h2>
+                                    <h1 class="title-uppercase title-no-upper-margin">Stand out</h1>
+                                </div>
+                                <br>
+                                <!--  We hide the play button on small devices -->
+                                <button type="button" data-video="video-source" data-toggle="video" class="btn btn-lg btn-neutral">
+                                    <i class="fa fa-play"></i> Play Video
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <div class="page-header" style="background-image: url('{{ asset('img/fabio-mangione.jpg') }}')">
                         <div class="filter"></div>
                         <div class="content-center">
@@ -66,6 +90,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             <a class="left carousel-control carousel-control-prev" href="#maincarousel" role="button" data-slide="prev">

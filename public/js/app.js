@@ -608,7 +608,7 @@ pk = {
 
         var marker = new google.maps.Marker({
             position: myLatlng,
-            title: "Creative Tim Office"
+            title: "Test"
         });
 
         // To add the marker to the map, call setMap();
@@ -745,7 +745,7 @@ pk = {
 
         var marker = new google.maps.Marker({
             position: myLatlng,
-            title: "Creative Tim Office"
+            title: "Test"
         });
 
         // To add the marker to the map, call setMap();

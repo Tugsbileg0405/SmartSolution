@@ -180,6 +180,7 @@ return [
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         App\Providers\BrandProvider::class,
+        RobbieP\CloudConvertLaravel\CloudConvertLaravelServiceProvider::class
     ],
 
     /*
@@ -194,7 +195,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

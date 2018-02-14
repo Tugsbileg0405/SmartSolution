@@ -15,25 +15,24 @@
                                     <div class="form-group">
                                         <label>И-мэйл хаяг:</label>
                                         <input type="email" placeholder="И-мэйл хаяг" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label>Нууц үг</label>
                                         <input type="password" placeholder="Нууц үг" class="form-control" name="password" required>
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
                                     </div>                                    
                                 </div>
                                 <div class="footer text-center">
                                     <button type="submit" class="btn btn-fill btn-warning btn-wd">Нэвтрэх</button>
                                 </div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </form>
                     </div>                    

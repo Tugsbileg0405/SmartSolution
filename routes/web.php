@@ -27,11 +27,17 @@ Auth::routes();
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::resource('/slide', 'AdminSlideController');
+    Route::get('/getslides', 'AdminSlideController@getSlides')->name('datatables.getslides');
+    Route::get('/addslide', 'AdminSlideController@addslide');
+    Route::post('/video/upload', 'AdminSlideController@videoUpload');
+    Route::post('/image/upload', 'AdminSlideController@imageUpload');
     Route::get('/mail', 'AdminController@mail');
     Route::post('/mail', 'AdminController@sendmail');
     Route::get('/addcategory', 'AdminCategoryController@addcategory');

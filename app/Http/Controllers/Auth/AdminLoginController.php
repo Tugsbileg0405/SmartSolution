@@ -29,7 +29,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(url('/admin/product'));
         }
       // if unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('email', 'remember'));
+        return redirect()->back()->withErrors("И-мэйл эсвэл нууц үг буруу байна")->withInput($request->only('email', 'remember'));
     }
 
     public function logout()

@@ -66,6 +66,18 @@
                     <p>И-мэйл илгээх</p>
                 </a>
             </li>
+            <li class="{{ Request::is('admin/addslide*') ? 'active' : '' }}">
+                <a href="{{ URL ('admin/addslide') }}">
+                    <i class="fa fa-plus-circle"></i>
+                    <p>Слайд нэмэх</p>
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/slide*') ? 'active' : '' }}">
+                <a href="{{ URL ('admin/slide') }}">
+                    <i class="fa fa-sliders"></i>
+                    <p>Слайд</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
