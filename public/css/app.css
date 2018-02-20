@@ -18732,9 +18732,13 @@ video {
     visibility: visible
 }
 
+#accordion .panel-title a {
+    color: #fff
+}
+
 #accordion .panel-title a:focus,
 #accordion .panel-title a:hover {
-    color: #f5593d
+    color: #fff
 }
 
 .card .carousel a,
@@ -18743,7 +18747,7 @@ video {
 }
 
 #accordion .card-header {
-    background-color: #FFF
+    background-color: #f5593d
 }
 
 .card-collapse {
