@@ -1,8 +1,6 @@
 @if($categories->isEmpty())
 <div class="products">
-    <div class="col-md-12">
-        <p class="text-center">Категори байхгүй байна.</p>
-    </div>
+    <p class="text-left">Категори байхгүй байна.</p>
 </div>
 @else
     <div class="card card-refine">
