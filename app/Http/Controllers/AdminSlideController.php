@@ -42,7 +42,6 @@ class AdminSlideController extends Controller
     public function store(Request $request)
     {
         $slide = new Slide;
-        $slide->name = $request->get('name');
         $slide->title = $request->get('title');
         $slide->description = $request->get('description');
         $slide->file = $request->get('filePath');
@@ -54,7 +53,7 @@ class AdminSlideController extends Controller
             return redirect()->back()->with('status', 'Файл оруулна уу!');
         }
         $slide->save();
-        return back()->with('success', 'Амжилттай хадгалагдлаа');
+        return back()->with('status', 'Амжилттай хадгалагдлаа');
     }
 
     /**
@@ -65,7 +64,8 @@ class AdminSlideController extends Controller
      */
     public function show($id)
     {
-        //
+        $Slide = Slide::findOrFail($id);
+        return \Response::json($Slide);
     }
 
     /**
@@ -88,7 +88,20 @@ class AdminSlideController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+        $slide->title = $request->get('title');
+        $slide->description = $request->get('description');
+        $slide->file = $request->get('filePath');
+        $slide->fileType = $request->get('fileType');
+        $slide->isButton = $request->get('isButton');
+        $slide->btnText = $request->get('btnText');
+        $slide->btnLink = $request->get('btnLink');
+        if (!$request->get('filePath')) {
+            return redirect()->back()->with('status', 'Файл оруулна уу!');
+        }
+        $slide->updated_at = \Carbon\Carbon::now();
+        $slide->save();
+        return \Response::json('Амжилттай хадгалагдлаа!');
     }
 
     /**
@@ -99,7 +112,9 @@ class AdminSlideController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Slide = Slide::findOrFail($id);
+        $Slide->delete();
+        return 'success';
     }
 
 
@@ -118,36 +133,45 @@ class AdminSlideController extends Controller
         })->make(true);
     }
 
-    public function imageUpload(Request $request)
+    public function fileUpload(Request $request)
     {
-        $image = $request->file('file');
-        $input['file'] = time().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('/img/uploads');
-        $image->move($destinationPath, $input['file']);
-        return response()->json([
-            'success' => true,
-            'path' => 'img/uploads/'.$input['file'],
-        ]);
-    }
-
-    public function videoUpload(Request $request)
-    {
-        $this->validate($request, [
-            'file' => 'required|mimes:mp4,avi,asf,mov,qt,avchd,flv,swf,mpg,mpeg,mpeg-4,wmv,divx,3gp|max:100000',
-        ]);
-        $videotmp = time();
-        $video = $request->file('file');
-        $input['file'] = $videotmp.'.'.$video->getClientOriginalExtension();
-        $destinationPath = public_path('/videos');
-        $video->move($destinationPath, $input['file']);
-        if ($video->getClientOriginalExtension() != "mp4") {
-            CloudConvert::file($destinationPath.'/'.$input['file'])->to('mp4');
-            File::delete($destinationPath.'/'. $input['file']);
-            $input['file'] = $videotmp.'.mp4';
+        $mimeType = $request->file('file')->getMimeType();
+        $split = explode("/", $mimeType);
+        if ($split[0] == 'video') {
+            $this->validate($request, [
+                'file' => 'required|mimes:mp4,avi,asf,mov,qt,avchd,flv,swf,mpg,mpeg,mpeg-4,wmv,divx,3gp|max:100000',
+            ]);
+            $videotmp = time();
+            $video = $request->file('file');
+            $input['file'] = $videotmp.'.'.$video->getClientOriginalExtension();
+            $destinationPath = public_path('/videos');
+            $video->move($destinationPath, $input['file']);
+            if ($video->getClientOriginalExtension() != "mp4") {
+                CloudConvert::file($destinationPath.'/'.$input['file'])->to('mp4');
+                File::delete($destinationPath.'/'. $input['file']);
+                $input['file'] = $videotmp.'.mp4';
+            }
+            return response()->json([
+                'success' => true,
+                'path' => 'videos/'.$input['file'],
+                'type' => 'video'
+            ]);
+        } else if ($split[0] == 'image') {
+            $image = $request->file('file');
+            $input['file'] = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img/uploads');
+            $image->move($destinationPath, $input['file']);
+            return response()->json([
+                'success' => true,
+                'path' => 'img/uploads/'.$input['file'],
+                'type' => 'image'
+            ]);
+        } else {
+            $returnData = array(
+                'success' => false,
+                'message' => 'Зураг эсвэл видео оруулна уу'
+            );
+            return response()->json($returnData, 400);
         }
-        return response()->json([
-            'success' => true,
-            'path' => 'videos/'.$input['file']
-        ]);
     }
 }

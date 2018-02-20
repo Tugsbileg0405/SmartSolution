@@ -36,8 +36,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::resource('/slide', 'AdminSlideController');
     Route::get('/getslides', 'AdminSlideController@getSlides')->name('datatables.getslides');
     Route::get('/addslide', 'AdminSlideController@addslide');
-    Route::post('/video/upload', 'AdminSlideController@videoUpload');
-    Route::post('/image/upload', 'AdminSlideController@imageUpload');
+    Route::post('/file/upload', 'AdminSlideController@fileUpload');
     Route::get('/mail', 'AdminController@mail');
     Route::post('/mail', 'AdminController@sendmail');
     Route::get('/addcategory', 'AdminCategoryController@addcategory');

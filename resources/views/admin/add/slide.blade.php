@@ -11,7 +11,7 @@
                         <h4 class="title">Слайд нэмэх</h4>
                     </div>
                     <div class="content">
-                        <form method="POST" enctype="multipart/form-data" id="addslideform" action="{{ url('/admin/slide') }}">
+                        <form method="POST" autocomplete="off" enctype="multipart/form-data" id="addslideform" action="{{ url('/admin/slide') }}">
                             <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
                             <div class="row">
                                 <div class="col-md-12">
@@ -35,15 +35,25 @@
                                         <label>Файл /Зураг эсвэл видио/</label>
                                         <div class="js-upload uk-placeholder uk-text-center">
                                             <span uk-icon="icon: cloud-upload"></span>
-                                            <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                                            <span class="uk-text-middle">Оруулах зураг эсвэл файлаа</span>
                                             <div uk-form-custom>
                                                 <input type="file" multiple>
-                                                <span class="uk-link">selecting one</span>
+                                                <span class="uk-link">энд даран</span>
+                                            </div>
+                                            <span class="uk-text-middle">оруулна уу</span>
+                                        </div>
+                                        <progress id="js-progressbar" class="uk-progress uk-progress-warning" value="0" max="100" hidden></progress>
+                                        <div id="filesPanel">
+                                            <video id="video-source" class="hide" controls preload="auto" loop="loop" muted="muted" volume="0">
+                                                <source src="" type="video/mp4"> Video not supported
+                                            </video>
+                                            <div class="hide">
+                                                <img id="image-source" class="img-rounded img-responsive" src="">
                                             </div>
                                         </div>
-                                        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -80,6 +90,8 @@
                             </div>
                             <button type="submit" class="btn btn-warning btn-fill pull-right">Нэмэх</button>
                             <div class="clearfix"></div>
+                            <input type="hidden" name="filePath">
+                            <input type="hidden" name="fileType">
                         </form>
                     </div>
                 </div>
@@ -95,7 +107,7 @@
     $(document).ready(function(){
         @if (session('status'))
         $.notify({
-            message: " {{ session('status') }}"
+            message: "{{ session('status') }}"
         },{
             type: 'success',
             timer: 2000
@@ -106,38 +118,50 @@
     var bar = document.getElementById('js-progressbar');
 
     UIkit.upload('.js-upload', {
-        url: '{{ url("admin/video/upload") }}',
+        url: '{{ url("admin/file/upload") }}',
         name: 'file',
         multiple: false,
-        beforeSend: function (environment) {
-            console.log('beforeSend', arguments);
-        },
-        beforeAll: function () {
-            console.log('beforeAll', arguments);
-        },
-        load: function () {
-            console.log('load', arguments);
-        },
-        error: function () {
+        error: function (e) {
             bar.setAttribute('hidden', 'hidden');
-            $.notify({
-                message: "Алдаа гарлаа. Түр хүлээгээд дахин оролдоно уу"
-            }, {
-                type: 'warning',
-                timer: 2000
-            });
-            console.log('error', arguments);
+            if (e == 'Bad Request') {
+                $.notify({
+                    message: "Зураг эсвэл видео оруулна уу"
+                }, {
+                    type: 'warning',
+                    timer: 2000
+                });
+            } else {
+                $.notify({
+                    message: "Алдаа гарлаа. Түр хүлээгээд дахин оролдоно уу"
+                }, {
+                    type: 'warning',
+                    timer: 2000
+                });
+            }
         },
-        complete: function () {
-            console.log('complete', arguments);
+        complete: function (data) {
+            var resp = JSON.parse(data.response);
+            $( "input[name='fileType']" ).val(resp.type);
+            $( "input[name='filePath']" ).val(resp.path);
+            $("#filesPanel video").addClass('hide');
+            $("#filesPanel div").addClass('hide');
+            if (resp.type == 'video') {
+                $("#video-source").attr('src', '{{ asset('') }}' + resp.path);
+                setTimeout(() => {
+                    $("#filesPanel video").removeClass('hide');
+                }, 1000);
+            } else if (resp.type == 'image') {
+                $("#image-source").attr('src', '{{ asset('') }}' + resp.path);
+                setTimeout(() => {
+                    $("#filesPanel div").removeClass('hide');
+                }, 1000);
+            }
         },
-
         loadStart: function (e) {
             bar.removeAttribute('hidden');
             bar.max = e.total;
             bar.value = e.loaded;
         },
-
         progress: function (e) {
             bar.max = e.total;
             if ((e.loaded / e.total) * 100 < 40) {
@@ -151,71 +175,29 @@
                 console.log('prossing haruulna');
             } 
         },
-
         loadEnd: function (e) {
             bar.max = e.total;
             bar.value = e.loaded;
         },
-
         completeAll: function () {
             setTimeout(function () {
                 bar.setAttribute('hidden', 'hidden');
             }, 1000);
-            alert('Upload Completed');
+            $.notify({
+                message: "Амжилттай хуулагдлаа"
+            }, {
+                type: 'info',
+                timer: 2000
+            });
         }
     });
-
-    // function isImage(file) {
-    //     return file['type'].split('/')[0] == 'image';
-    // }
-
-    // function isVideo(file) {
-    //     return file['type'].split('/')[0] == 'video';
-    // }
-
-    // var input = $('input[name=file]');
-    // input.change(function() {
-    //     var url = '';
-    //     var fileType = '';
-    //     if (isImage(input[0].files[0])) {
-    //         url = '{{ url("admin/image/upload") }}';
-    //         fileType = 'image';
-    //     } else if (isVideo(input[0].files[0])) {
-    //         fileType = 'video';
-    //         url = '{{ url("admin/video/upload") }}';
-    //     }
-    //     if (url) {
-    //         $('#addslideform').append('<input type="hidden" name="fileType" value="' + fileType + '" />');
-    //         formData = new FormData();
-    //         formData.append('file', input[0].files[0]);
-    //         formData.append('_token', '{{ csrf_token() }}');
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: url,    
-    //             data: formData,
-    //             contentType: false,
-    //             processData: false,
-    //         }).done(function(data) {
-    //             if (data.success) {
-    //                 $('#addslideform').append('<input type="hidden" name="filePath" value="' + data.path + '" />');
-    //             }
-    //         }).fail(function(err) {
-    //             console.log(err);
-    //         });
-    //     } else {
-    //         $.notify({
-    //             message: "Та зурган юмуу видео файл оруулна уу"
-    //         }, {
-    //             type: 'warning',
-    //             timer: 2000
-    //         });
-    //     }
-    // });
 
     $('.buttonInfo').hide();
     $("input[name=isButton]").on("change", function() {
         if ($("input[name=isButton]").parent().hasClass('checked')) {
             if ($("input[name=isButton]:checked").val() == 0) {
+                $('input[name="btnText"]').val(null);
+                $('input[name="btnLink"]').val(null);
                 $('.buttonInfo').hide();
             } else {
                 $('.buttonInfo').show();

@@ -25,8 +25,8 @@
                                     <button type="submit" class="btn btn-fill btn-warning btn-wd">Нэвтрэх</button>
                                 </div>
                                 @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
+                                    <div class="alert">
+                                        <ul class="text-danger">
                                             @foreach ($errors->all() as $error)
                                                 <li>{{ $error }}</li>
                                             @endforeach

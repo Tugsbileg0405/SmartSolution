@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subscriber;
+use App\Slide;
 
 class AppController extends Controller
 {
@@ -14,7 +15,10 @@ class AppController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        $slides = Slide::get();
+        return view('pages.index', [
+            'slides' => $slides
+        ]);
     }
 
     /**

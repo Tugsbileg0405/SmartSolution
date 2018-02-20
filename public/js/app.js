@@ -426,11 +426,11 @@ pk = {
 
             if (video.paused) {
                 video.play();
-                $(this).html('<i class="fa fa-pause"></i> Pause Video');
+                $(this).html('<i class="fa fa-pause"></i> Зогсоох');
                 parent.addClass('state-play');
             } else {
                 video.pause();
-                $(this).html('<i class="fa fa-play"></i> Play Video');
+                $(this).html('<i class="fa fa-play"></i> Тоглуулах');
                 parent.removeClass('state-play');
             }
         });
