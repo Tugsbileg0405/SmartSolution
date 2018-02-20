@@ -17795,8 +17795,6 @@ video {
 .subscribe-line .form-control {
     height: auto;
     font-size: 1.825em;
-    border-bottom: 1px solid #fff;
-    border-radius: 0 !important;
     padding: 0;
     font-weight: 300;
     line-height: 54px;
@@ -17804,9 +17802,7 @@ video {
 }
 
 .subscribe-line .form-control:focus {
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
 }
 
 .subscribe-line .btn:not(.btn-lg) {
@@ -18729,9 +18725,13 @@ video {
     visibility: visible
 }
 
+#accordion .panel-title a{
+    color: #fff
+}
+
 #accordion .panel-title a:focus,
 #accordion .panel-title a:hover {
-    color: #f5593d
+    color: #fff
 }
 
 .card .carousel a,
@@ -18740,7 +18740,7 @@ video {
 }
 
 #accordion .card-header {
-    background-color: #FFF
+    background-color: #F5593D
 }
 
 .card-collapse {
