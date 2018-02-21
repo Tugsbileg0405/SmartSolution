@@ -133,7 +133,7 @@
         </div>
     </div>
 
-    <div class="features-5 section-image" style="background-image: url(' {{ asset('img/joshua-stannard.jpg') }} ')">
+    <div class="features-5 section-image" style="background-image: url(' {{ asset('img/feature.jpg') }} ')">
         <div class="container">
 
             <div class="row">

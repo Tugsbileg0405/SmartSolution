@@ -17,7 +17,7 @@ class SlidesTableSeeder extends Seeder
         DB::table('slides')->insert([
             'title' => 'Smart Solution LLC',
             'description' => 'Байгууллагад зориулсан тоног төхөөрөмж, программ хангамжийн цогц шийдэл',
-            'file' => '/img/fabio-mangione.jpg',
+            'file' => '/img/feature.jpg',
             'fileType' => 'image',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
