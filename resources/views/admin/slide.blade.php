@@ -286,6 +286,8 @@
     $("input[name=isButton]").on("change", function() {
         if ($("input[name=isButton]").parent().hasClass('checked')) {
             if ($("input[name=isButton]:checked").val() == 0) {
+                $('input[name="btnText"]').val(null);
+                $('input[name="btnLink"]').val(null);
                 $('.buttonInfo').hide();
             } else {
                 $('.buttonInfo').show();

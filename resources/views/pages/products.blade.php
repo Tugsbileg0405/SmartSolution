@@ -39,10 +39,6 @@
                                     </div>
                                 </div>
                                 @endforeach
-                            @else 
-                                <div class="col-md-12">
-                                    <p class="text-center">Бүтээгдэхүүн байхгүй байна.</p>
-                                </div>
                             @endif
                         </div>
                         <div class="row">
